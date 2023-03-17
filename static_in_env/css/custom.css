@@ -1,0 +1,45 @@
+
+
+.small-post-thumbnail img {
+  max-width: 340px;
+  width: auto;
+  min-width: 180px ;
+  padding: 0px 0px ;
+  height: 200px;
+}
+
+.small-post-thumbnail {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  width: 340px;
+  height: 200px;
+  padding: 0px 0px;
+  justify-content: center;
+  background-color: rgb(245, 245, 245)
+}
+
+.small-post-thumbnail-img {
+  max-width: 340px;
+  width: auto;
+  min-width: 180px ;
+  padding: 0px 0px ;
+  height: 200px;
+}
+
+.custom-post-title {
+  color: #222222;
+  font-size: 1.25rem;
+  line-height: 0.75rem ;
+}
+
+.footer-link-container {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-link-container a {
+  display: inline-block;
+  width: 30%;
+  text-align: center;
+}

@@ -1,0 +1,68 @@
+{% load static %}
+<footer class="main-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+
+              <h6 class="text-white">{{ branding_data.brand_title }}</h6>
+              <p style="font-size: 0.8rem">{{ branding_data.brand_disclaimer_1 }}</p>
+
+
+
+
+          </div>
+          <div class="col-md-4">
+              <h6 class="text-white">Disclaimer:</h6>
+            <p style="font-size: 0.8rem">{{ branding_data.brand_disclaimer_2 }}</p>
+
+          </div>
+          <div class="col-md-4">
+            <div class="latest-posts">
+                <header>
+                    <h3 class="h6">Latest Posts</h3>
+                </header>
+                <div class="blog-posts">
+                    {% for post in most_recent|slice:3 %}
+                    <a href="{% url 'post-detail' post.slug %}">
+                        <div class="item d-flex align-items-center">
+                        <div class="image"><img src="{{ post.thumbnail.url }}" alt="..." class="img-fluid"></div>
+                        <div class="title"><strong>{{ post.title }}</strong>
+                            <div class="d-flex align-items-center">
+
+                            </div>
+                        </div>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+
+          </div>
+        </div>
+
+        </div> <!-- End Div Row -->
+
+      </div>
+
+    <div class="copyrights">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+                    <a href="#" style="padding-right: 10px">Terms & Conditions</a>
+                    <a href="#" style="padding-right: 10px">Privacy Policy</a>
+                    <a href="#">Do Not Sell My Information</a>
+            </div>
+            <div class="col-md-6 text-right">
+            </div>
+          </div>
+            <div class="row">
+            <div class="col-md-6">
+              <p>&copy; 2023. All rights reserved {{ branding_data.brand_title }}.</p>
+            </div>
+            <div class="col-md-6 text-right">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </footer>

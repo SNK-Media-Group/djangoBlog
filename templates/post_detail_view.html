@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+  .post-body img {
+    width: 100%;
+  }
+</style>
+
+    <div class="container">
+      <div class="row">
+
+        <main class="post blog-post col-lg-8"> 
+          <div class="container" >
+            <div class="row">
+                <div class="post-single" style="padding: 0px 5px">
+                  <div class="post-thumbnail"><img src="{{ post.thumbnail.url }}" alt="..." class="img-fluid"></div>
+                  <div class="post-details" style="padding: 0px 5px">
+                    <div class="post-meta d-flex justify-content-between">
+                      <div class="category">
+                        {% for cat in post.categories.all|slice:":2" %}
+                            <a href="{% url 'post-list-by-topic' cat.slug %}">{{ cat }}</a>
+                        {% endfor %}
+                      </div>
+                    </div>
+                    <h1>{{ post.title }}</h1>
+                    <div class="post-footer d-flex align-items-center flex-column flex-sm-row">
+                      <div class="d-flex align-items-center flex-wrap">
+                        <div class="date"><i class="icon-clock"></i> {{ post.timestamp|timesince }} ago</div>
+                        <div class="comments meta-last"><i class="fa fa-hourglass-half"></i>{{ post.read_length }} Minute Read</div>
+                      </div>
+                    </div>
+                    <div class="post-body" style="padding: 0px 5px">
+                      {{ post.content | safe }}
+                    </div>
+
+                  </div> <!-- End DIV post-details -->
+                </div> <!-- End DIV post-single -->
+            </div>
+            <div class="row">
+                <!-- Recommended Section -->
+                {% include 'main_recommended.html' %}
+            </div>
+            <div class="row">
+                <!-- Similar Section -->
+                {% include 'main_similar.html' %}
+            </div>
+          </div> <!-- End DIV container -->
+        </main>
+        {% include 'sidebar.html' with most_recent=most_recent category_data=category_data %}
+      </div>
+
+    </div>
+{% endblock content %}

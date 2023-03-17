@@ -1,0 +1,9 @@
+featured = articles to be highlighted on the home page in the featured section
+recent = a raw output of recent articles
+
+similar = articles that are recommended within the category - this is only in the main
+recommended = a selection of articles that are tagged as recommended that we want to promote
+
+
+
+blog will become category page

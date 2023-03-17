@@ -1,0 +1,20 @@
+<!-- Widget [Latest Posts Widget]        -->
+    <div class="widget latest-posts">
+    <header>
+        <h3 class="h6">Latest Posts</h3>
+    </header>
+    <div class="blog-posts">
+        {% for post in most_recent %}
+        <a href="{% url 'post-detail' post.slug %}">
+            <div class="item d-flex align-items-center">
+            <div class="image"><img src="{{ post.thumbnail.url }}" alt="..." class="img-fluid"></div>
+            <div class="title"><strong>{{ post.title }}</strong>
+                <div class="d-flex align-items-center">
+
+                </div>
+            </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+    </div>

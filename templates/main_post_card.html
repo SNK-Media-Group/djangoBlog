@@ -1,0 +1,31 @@
+{# posts must be passed in as for post in ___#}
+<div class="post col-xl-6" style="margin-bottom: 40px; padding: 0px 0px 0px 20px">
+
+    <div class="small-post-thumbnail" >
+        <a href="{% url 'post-detail' post.slug %}" class="custom_thumbnail_link">
+            <img src="{{ post.thumbnail.url }}" alt="..." class="img-fluid" >
+        </a>
+    </div>
+
+    <div class="post-details" style="min-height: 110px">
+      <div class="post-meta d-flex justify-content-between">
+        <div class="category">
+            {% for cat in post.categories.all|slice:":2" %}
+                <a href="{% url 'post-list-by-topic' cat.slug %}">{{ cat }}</a>
+            {% endfor %}
+        </div>
+      </div>
+      <a href="{% url 'post-detail' post.slug %}">
+        <h5 class="custom-post-title" style="padding-right: 10px; margin-bottom: 0px; font-size: 1.2rem; line-height: 1.35rem">{{ post.title }}</h5>
+      </a>
+
+      <footer class="post-footer d-flex align-items-center" style="bottom: 0; position: absolute; padding-top: 0px;  " >
+        <div class="date">
+            <i class="fa fa-hourglass-half"></i>{{ post.read_length }} Minute Read
+        </div>
+        <div class="date">
+            <i class="icon-clock"></i>{{ post.timestamp|timesince }} ago
+        </div>
+      </footer>
+    </div>
+</div>

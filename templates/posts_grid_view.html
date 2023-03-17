@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="container">
+      <header style="padding-top: 8px ; ">
+          <h2>{{ view_title }}</h2>
+      </header>
+        <div class="row">
+
+
+        <main class="posts-listing col-lg-8"> 
+          <div class="container">
+            <div class="row">
+              <!-- post -->
+              {% for post in queryset %}
+                  {% include 'main_post_card.html' %}
+              {% endfor %}
+            </div>
+            <div class="row">
+                <!-- Pagination -->
+                {% include 'main_pagination.html' %}
+            </div>
+            <div class="row">
+                <!-- Recommended Section -->
+                {% include 'main_recommended.html' %}
+            </div>
+          </div>
+        </main>
+        {% include 'sidebar.html' with most_recent=most_recent category_count=category_count %}
+      </div>
+
+    </div>
+
+{% endblock content %}

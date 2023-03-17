@@ -1,0 +1,12 @@
+<!-- Widget [Categories Widget]-->
+<div class="widget categories">
+    <header>
+        <h3 class="h6">All Topics</h3>
+    </header>
+    {% for category_name, category_data in category_data.items %}
+        <div class="item d-flex justify-content-between">
+            <a href="{% url 'post-list-by-topic' category_data.category_slug %}">{{ category_name }}</a>
+            <span>{{ category_data.category_count }}</span>
+        </div>
+    {% endfor %}
+</div>
